@@ -1,0 +1,39 @@
+{
+  "name": "react-native-toggle-element",
+  "version": "1.0.0",
+  "description": "Switch toggle component for React Native. You can add title, icon, modify component for toggle button.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mymai91/react-native-toggle-element.git"
+  },
+  "keywords": [
+    "react-native-toggle",
+    "react-native-toggle-element"
+  ],
+  "author": "Jany Mai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mymai91/react-native-toggle-element/issues"
+  },
+  "homepage": "https://github.com/mymai91/react-native-toggle-element#readme",
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react-native-testing-library": "^1.13.2",
+    "react-test-renderer": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-jest": "^25.5.0",
+    "jest": "^25.5.0",
+    "react": "^16.13.1",
+    "react-native": "^0.62.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
