@@ -1,8 +1,8 @@
-# React-Native-Toggle-Element
+# React-Native-Toggle-Element [![CircleCI](https://circleci.com/gh/mymai91/react-native-toggle-element.svg?style=svg)](https://circleci.com/gh/mymai91/react-native-toggle-element)
 
 ![ezgif com-video-to-gif (7)](https://user-images.githubusercontent.com/6791942/80718297-8edea800-8b2c-11ea-8f69-c7c3f98ca545.gif)
 
-![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/6791942/80716998-eb40c800-8b2a-11ea-9350-fa3c2ec6ee40.gif)
+![toggle](https://user-images.githubusercontent.com/6791942/80785013-854b5380-8bb1-11ea-9c7a-8b8975381642.gif)
 
 ## Installation
 
@@ -118,7 +118,7 @@ const [toggleValue, setToggleValue] = useState(false);
 
 ### Toggle with thumb button components
 
-![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/6791942/80716998-eb40c800-8b2a-11ea-9350-fa3c2ec6ee40.gif)
+![toggle](https://user-images.githubusercontent.com/6791942/80785013-854b5380-8bb1-11ea-9c7a-8b8975381642.gif)
 
 ```jsx
 <ToggleButton
