@@ -108,6 +108,7 @@ const ReactNativeToggleElement = (props) => {
     thumbStyle,
     leftTitle,
     rightTitle,
+    animationDuration
   } = props;
 
   const [toggleValue, setToggleValue] = useState(value);
@@ -120,7 +121,7 @@ const ReactNativeToggleElement = (props) => {
 
     Animated.timing(fadeAnim, {
       toValue,
-      duration: 350,
+      duration: animationDuration,
       useNativeDriver: true,
     }).start();
   };
@@ -290,6 +291,7 @@ ReactNativeToggleElement.propTypes = {
   thumbStyle: ViewPropTypes.style,
   leftTitle: PropTypes.string,
   rightTitle: PropTypes.string,
+  animationDuration: PropTypes.number
 };
 
 ReactNativeToggleElement.defaultProps = {
@@ -328,6 +330,7 @@ ReactNativeToggleElement.defaultProps = {
     color: COLOR_DEFAULT.disable,
   },
   thumbStyle: null,
+  animationDuration: 350
 };
 
 const styles = StyleSheet.create({
