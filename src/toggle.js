@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
   Animated,
   StyleSheet,
@@ -113,6 +113,14 @@ const ReactNativeToggleElement = (props) => {
 
   const [toggleValue, setToggleValue] = useState(value);
 
+  useEffect(() => {
+    updateThumbButton(toggleValue)
+  }, [toggleValue])
+
+  useEffect(() => {
+    setToggleValue(value);
+  }, [value])
+
   const updateThumbButton = (toggleState) => {
     const thumbBtnWidth = thumbButton.width ?? SIZE_DEFAULT.thumbBtnWidth;
     const trackBarW = trackBar.width ?? SIZE_DEFAULT.trackBarWidth;
@@ -131,7 +139,6 @@ const ReactNativeToggleElement = (props) => {
     const val = !toggleValue;
     setToggleValue(val);
     onPress(val);
-    updateThumbButton(val);
   };
 
   const handlePress = () => {
