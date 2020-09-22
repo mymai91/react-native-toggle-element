@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
   Animated,
   StyleSheet,
@@ -108,9 +108,18 @@ const ReactNativeToggleElement = (props) => {
     thumbStyle,
     leftTitle,
     rightTitle,
+    animationDuration
   } = props;
 
   const [toggleValue, setToggleValue] = useState(value);
+
+  useEffect(() => {
+    updateThumbButton(toggleValue)
+  }, [toggleValue])
+
+  useEffect(() => {
+    setToggleValue(value);
+  }, [value])
 
   const updateThumbButton = (toggleState) => {
     const thumbBtnWidth = thumbButton.width ?? SIZE_DEFAULT.thumbBtnWidth;
@@ -120,7 +129,7 @@ const ReactNativeToggleElement = (props) => {
 
     Animated.timing(fadeAnim, {
       toValue,
-      duration: 350,
+      duration: animationDuration,
       useNativeDriver: true,
     }).start();
   };
@@ -130,7 +139,6 @@ const ReactNativeToggleElement = (props) => {
     const val = !toggleValue;
     setToggleValue(val);
     onPress(val);
-    updateThumbButton(val);
   };
 
   const handlePress = () => {
@@ -290,6 +298,7 @@ ReactNativeToggleElement.propTypes = {
   thumbStyle: ViewPropTypes.style,
   leftTitle: PropTypes.string,
   rightTitle: PropTypes.string,
+  animationDuration: PropTypes.number
 };
 
 ReactNativeToggleElement.defaultProps = {
@@ -328,6 +337,7 @@ ReactNativeToggleElement.defaultProps = {
     color: COLOR_DEFAULT.disable,
   },
   thumbStyle: null,
+  animationDuration: 350
 };
 
 const styles = StyleSheet.create({

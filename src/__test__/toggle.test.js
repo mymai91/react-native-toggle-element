@@ -373,7 +373,7 @@ describe('Toggle Component', () => {
 
       getByTestId('ToggleButton').props.onPress();
 
-      expect(setToggleValue).toHaveBeenCalledTimes(1);
+      expect(setToggleValue).toHaveBeenCalledTimes(2);
 
       fireEvent.press(getByTestId('ToggleButton'));
 
@@ -399,7 +399,7 @@ describe('Toggle Component', () => {
 
       getByTestId('ToggleButton').props.onLongPress();
 
-      expect(setToggleValue).toHaveBeenCalledTimes(1);
+      expect(setToggleValue).toHaveBeenCalledTimes(2);
     });
   });
 
