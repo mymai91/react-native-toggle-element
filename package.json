@@ -1,6 +1,6 @@
 {
   "name": "react-native-toggle-element",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Switch toggle component for React Native. You can add title, icon, modify component for toggle button.",
   "main": "src/index.js",
   "scripts": {
