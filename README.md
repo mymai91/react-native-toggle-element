@@ -244,6 +244,7 @@ const [toggleValue, setToggleValue] = useState(false);
 - thumbButton
 - trackBar
 - trackBarStyle
+- animationDuration
 
 ## Reference
 
@@ -377,3 +378,11 @@ const [toggleValue, setToggleValue] = useState(false);
 | Type                         | Default       |
 | ------------- |:-------------:|
 | View style (object)     |none |
+
+
+`animationDuration` duration of the thumb button animation (optional).
+
+
+| Type                         | Default       |
+| ------------- |:-------------:|
+| number     |350 |
