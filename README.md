@@ -40,7 +40,7 @@ const [toggleValue, setToggleValue] = useState(false);
 ```jsx
 <Toggle
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   leftTitle="On"
 />
 ```
@@ -52,7 +52,7 @@ const [toggleValue, setToggleValue] = useState(false);
 ```jsx
 <Toggle
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   leftTitle="Right"
 />
 ```
@@ -64,7 +64,7 @@ const [toggleValue, setToggleValue] = useState(false);
 ```jsx
 <Toggle
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   leftTitle="Left"
   rightTitle="Right"
 />
@@ -77,7 +77,7 @@ const [toggleValue, setToggleValue] = useState(false);
 ```jsx
 <Toggle
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   leftComponent={
     <Icon name="credit" width="30" height="30" fill={"#3BD2B5"} />
   }
@@ -91,7 +91,7 @@ const [toggleValue, setToggleValue] = useState(false);
 ```jsx
 <Toggle
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   rightComponent={
     <Icon name="plus" width="30" height="30" fill={'#3BD2B5'} />
   }
@@ -105,7 +105,7 @@ const [toggleValue, setToggleValue] = useState(false);
 ```jsx
 <Toggle
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   disabled
   leftComponent={
     <Icon name="credit" width="30" height="30" fill={Colors.tabIconSelected} />
@@ -123,7 +123,7 @@ const [toggleValue, setToggleValue] = useState(false);
 ```jsx
 <ToggleButton
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   thumbActiveComponent={
     <Icon name="sun" width="40" height="40" fill={'#3BD2B5'} />
   }
@@ -149,7 +149,7 @@ const [toggleValue, setToggleValue] = useState(false);
 <Toggle
   disabled
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   leftTitle="Left"
   rightTitle="Right"
 />
@@ -164,7 +164,7 @@ const [toggleValue, setToggleValue] = useState(false);
 ```jsx
 <Toggle
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   leftTitle="Left"
   rightTitle="Right"
   trackBar={{
@@ -184,7 +184,7 @@ const [toggleValue, setToggleValue] = useState(false);
 ```jsx
 <Toggle
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   trackBarStyle={{
     borderColor: 'green',
   }}
@@ -201,7 +201,7 @@ const [toggleValue, setToggleValue] = useState(false);
 ```jsx
 <Toggle
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   leftTitle="Left"
   rightTitle="Right"
   thumbButton={{
@@ -222,7 +222,7 @@ const [toggleValue, setToggleValue] = useState(false);
   disabledTitleStyle={{ color: 'red' }}
   disabledStyle={{ backgroundColor: 'gray', opacity: 0.3 }}
   value={toggleValue}
-  onToggle={(newState) => setToggleValue(newState)}
+  onPress={(newState) => setToggleValue(newState)}
   leftTitle="Left"
   rightTitle="Right"
 />
