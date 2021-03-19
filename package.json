@@ -22,16 +22,16 @@
   "homepage": "https://github.com/mymai91/react-native-toggle-element#readme",
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react-native-testing-library": "^1.13.2",
-    "react-test-renderer": "^16.13.1"
+    "react": "^16.13.1",
+    "react-native": "^0.62.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "babel-jest": "^25.5.0",
     "jest": "^25.5.0",
-    "react": "^16.13.1",
-    "react-native": "^0.62.2"
+    "react-native-testing-library": "^1.13.2",
+    "react-test-renderer": "^16.13.1"
   },
   "jest": {
     "preset": "react-native"
