@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "react-native-toggle-element": {
+      "signature": "1e1102c8244ee633cf8a100930707cb8",
+      "file": true
+    }
+  }
+}
