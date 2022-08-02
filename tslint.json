@@ -1,0 +1,20 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-standard",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "jsRules": {},
+  "rules": {
+    "ordered-imports": true,
+    "object-literal-sort-keys": false,
+    "no-trailing-whitespace": [true, "always"],
+    "prefer-const": [true, { "destructuring": "any" }],
+    "semicolon": [true, "always"],
+    "space-before-function-paren": [true, "never"],
+    "jsx-no-lambda": false,
+    "no-console": [true, "log", "error"]
+  }
+}
