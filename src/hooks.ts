@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Animated } from "react-native";
+import { Animated, I18nManager } from "react-native";
 import { SIZE_DEFAULT } from "./constants";
 import { ThumbButton, ThumbChildrenPlacement, TrackBar } from "./types";
 
@@ -45,7 +45,7 @@ export const useToggleValue = (
     const toValue = toggleState ? distance : 0;
 
     Animated.timing(fadeAnim, {
-      toValue,
+      toValue: I18nManager.isRTL ? -toValue : toValue,
       duration: animationDuration,
       useNativeDriver: true,
     }).start();
