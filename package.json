@@ -2,16 +2,12 @@
   "name": "react-native-toggle-element",
   "version": "2.0.1",
   "description": "Switch toggle component for React Native. You can add title, icon, modify component for toggle button.",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./src/index.ts",
   "scripts": {
     "build": "tsc --project ./tsconfig.json",
     "test": "jest",
     "lint": "tslint --project ./tsconfig.json"
   },
-  "files": [
-    "lib/**/*"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mymai91/react-native-toggle-element.git"
