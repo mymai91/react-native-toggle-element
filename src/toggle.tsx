@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import {
   Animated,
   StyleSheet,
@@ -7,10 +7,9 @@ import {
   View,
 } from "react-native";
 import {
-  COLOR_DEFAULT,
-  DefaultReactNativeToggleElementProps,
+  defaultThumbButton,
   DefaultThumbChildrenProps,
-  SIZE_DEFAULT,
+  defaultTrackBar,
   ToggleStyles,
   ToggleThumbButtonStyles,
   ToogleTrackBarStyles,
@@ -28,7 +27,7 @@ const ThumbChildren = (props: ThumbChildrenProps) => {
     children,
     disabled,
     disabledTitleStyle,
-  } = props;
+  } = { ...DefaultThumbChildrenProps, ...props };
 
   if (children) {
     return <View>{children}</View>;
@@ -58,31 +57,38 @@ const ThumbChildren = (props: ThumbChildrenProps) => {
   return null;
 };
 
-ThumbChildren.defaultProps = DefaultThumbChildrenProps;
-
 const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
   const {
+    onPress,
     value,
+    disabled,
     leftComponent,
     rightComponent,
     thumbActiveComponent,
     thumbInActiveComponent,
-    trackBar,
-    thumbButton,
+    trackBar: customTrackBar,
+    thumbButton: customThumbButton,
     containerStyle,
     trackBarStyle,
     disabledStyle,
     disabledTitleStyle,
-    disabled,
     thumbStyle,
-    leftTitle,
-    rightTitle,
-    animationDuration,
-    onPress,
-  } = props;
+    leftTitle = "",
+    rightTitle = "",
+    animationDuration = 250,
+  } = { ...DefaultThumbChildrenProps, ...props };
+
+  const finalTrackBar = { ...defaultTrackBar, ...customTrackBar };
+  const finalThumbButton = { ...defaultThumbButton, ...customThumbButton };
 
   const { toggleValue, handlePress, handleLongPress, fadeAnim } =
-    useToggleValue(value, thumbButton, trackBar, animationDuration, onPress);
+    useToggleValue(
+      value,
+      finalThumbButton,
+      finalTrackBar,
+      animationDuration,
+      onPress
+    );
 
   const trackBarBackgroundColor = () => {
     let {
@@ -90,15 +96,7 @@ const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
       inActiveBackgroundColor,
       borderInActiveColor,
       borderActiveColor,
-    } = props.trackBar;
-
-    activeBackgroundColor =
-      activeBackgroundColor ?? COLOR_DEFAULT.trackActiveBg;
-    inActiveBackgroundColor =
-      inActiveBackgroundColor ?? COLOR_DEFAULT.trackInActiveBg;
-
-    borderActiveColor = borderActiveColor ?? COLOR_DEFAULT.borderColor;
-    borderInActiveColor = borderInActiveColor ?? COLOR_DEFAULT.borderColor;
+    } = finalTrackBar;
 
     const style = {
       backgroundColor: toggleValue
@@ -110,17 +108,7 @@ const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
     return style;
   };
 
-  const thumbButtonBackgroundColor = () => {
-    let activeBg = "";
-    let inActiveBg = "";
-
-    const { activeBackgroundColor, inActiveBackgroundColor } = thumbButton;
-
-    activeBg = activeBackgroundColor ?? COLOR_DEFAULT.thumbActive;
-    inActiveBg = inActiveBackgroundColor ?? COLOR_DEFAULT.thumbInActive;
-
-    return toggleValue ? activeBg : inActiveBg;
-  };
+  const { activeBackgroundColor, inActiveBackgroundColor } = finalThumbButton;
 
   return (
     <View style={StyleSheet.flatten([ToggleStyles.container, containerStyle])}>
@@ -134,7 +122,7 @@ const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
         <View
           testID="TrackBar"
           style={StyleSheet.flatten([
-            ToogleTrackBarStyles.trackBar(trackBar),
+            ToogleTrackBarStyles.trackBar(finalTrackBar),
             trackBarBackgroundColor(),
             trackBarStyle,
             disabled && disabledStyle,
@@ -146,15 +134,15 @@ const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
               ToggleStyles.thumbPosition,
               ToggleStyles.thumbLeft,
               ToggleThumbButtonStyles.thumbButton(
-                thumbButton,
-                trackBar.borderWidth
+                finalThumbButton,
+                finalTrackBar.borderWidth
               ),
             ])}
           >
             <ThumbChildren
               toggleValue={toggleValue}
-              activeColor={thumbButton.activeBackgroundColor}
-              inActiveColor={thumbButton.inActiveBackgroundColor}
+              activeColor={activeBackgroundColor}
+              inActiveColor={inActiveBackgroundColor}
               disabled={disabled}
               disabledTitleStyle={disabledTitleStyle}
               title={leftTitle}
@@ -169,12 +157,14 @@ const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
               {
                 transform: [{ translateX: fadeAnim }],
                 zIndex: -1,
-                backgroundColor: thumbButtonBackgroundColor(),
+                backgroundColor: toggleValue
+                  ? activeBackgroundColor
+                  : inActiveBackgroundColor,
               },
               ToggleStyles.thumbAnimatedPosition,
               ToggleThumbButtonStyles.thumbButton(
-                thumbButton,
-                trackBar.borderWidth
+                finalThumbButton,
+                finalTrackBar.borderWidth
               ),
               thumbStyle,
             ])}
@@ -187,15 +177,15 @@ const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
               ToggleStyles.thumbPosition,
               ToggleStyles.thumbRight,
               ToggleThumbButtonStyles.thumbButton(
-                thumbButton,
-                trackBar.borderWidth
+                finalThumbButton,
+                finalTrackBar.borderWidth
               ),
             ])}
           >
             <ThumbChildren
               toggleValue={toggleValue}
-              activeColor={thumbButton.activeColor}
-              inActiveColor={thumbButton.inActiveColor}
+              activeColor={finalThumbButton.activeColor}
+              inActiveColor={finalThumbButton.inActiveColor}
               disabled={disabled}
               disabledTitleStyle={disabledTitleStyle}
               title={rightTitle}
@@ -209,7 +199,5 @@ const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
     </View>
   );
 };
-
-ReactNativeToggleElement.defaultProps = DefaultReactNativeToggleElementProps;
 
 export default ReactNativeToggleElement;

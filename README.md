@@ -119,7 +119,7 @@ const [toggleValue, setToggleValue] = useState(false);
 ![toggle](https://user-images.githubusercontent.com/6791942/80785013-854b5380-8bb1-11ea-9c7a-8b8975381642.gif)
 
 ```jsx
-<ToggleButton
+<Toggle
   value={toggleValue}
   onPress={(newState) => setToggleValue(newState)}
   thumbActiveComponent={

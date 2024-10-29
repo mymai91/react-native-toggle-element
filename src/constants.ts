@@ -2,9 +2,11 @@ import { StyleSheet } from "react-native";
 import {
   ReactNativeToggleElementProps,
   ThumbButton,
+  ThumbButtonConfig,
   ThumbChildrenProps,
   ToogleTrackBar,
   TrackBar,
+  TrackBarConfig,
 } from "./types";
 
 export const COLOR_DEFAULT = {
@@ -26,6 +28,28 @@ export const SIZE_DEFAULT = {
   thumbBtnRadius: 25,
   thumbBtnWidth: 50,
   borderWidth: 0,
+};
+
+export const defaultTrackBar: TrackBarConfig = {
+  borderWidth: SIZE_DEFAULT.borderWidth,
+  width: SIZE_DEFAULT.trackBarWidth,
+  height: SIZE_DEFAULT.trackBarHeight,
+  radius: SIZE_DEFAULT.trackBarRadius,
+  activeBackgroundColor: COLOR_DEFAULT.trackActiveBg,
+  inActiveBackgroundColor: COLOR_DEFAULT.trackInActiveBg,
+  borderActiveColor: COLOR_DEFAULT.borderColor,
+  borderInActiveColor: COLOR_DEFAULT.borderColor,
+};
+
+export const defaultThumbButton: ThumbButtonConfig = {
+  borderWidth: SIZE_DEFAULT.borderWidth,
+  width: SIZE_DEFAULT.thumbBtnWidth,
+  height: SIZE_DEFAULT.thumbBtnHeight,
+  radius: SIZE_DEFAULT.thumbBtnRadius,
+  activeBackgroundColor: COLOR_DEFAULT.thumbActive,
+  inActiveBackgroundColor: COLOR_DEFAULT.thumbInActive,
+  activeColor: COLOR_DEFAULT.textActive,
+  inActiveColor: COLOR_DEFAULT.textInActive,
 };
 
 export const DefaultThumbChildrenProps: ThumbChildrenProps = {
