@@ -6,13 +6,17 @@ import Toggle from "../toggle";
 
 describe("Toggle Component", () => {
   it("should render without issue", () => {
-    const { getAllByTestId } = render(<Toggle value={true} />);
+    const { getAllByTestId } = render(
+      <Toggle onPress={(val) => console.log(val)} value={true} />
+    );
 
     expect(getAllByTestId("ToggleButton")).toHaveLength(1);
   });
 
   it("should render with default value", () => {
-    const component = render(<Toggle value={true} />);
+    const component = render(
+      <Toggle onPress={(val) => console.log(val)} value={true} />
+    );
 
     const { getAllByTestId, getByTestId } = component;
 
@@ -33,7 +37,13 @@ describe("Toggle Component", () => {
 
   describe("Render Title", () => {
     it("should render with left Title", () => {
-      const component = render(<Toggle value={true} leftTitle="On" />);
+      const component = render(
+        <Toggle
+          onPress={(val) => console.log(val)}
+          value={true}
+          leftTitle="On"
+        />
+      );
 
       const { UNSAFE_getAllByType } = component;
 
@@ -44,7 +54,13 @@ describe("Toggle Component", () => {
     });
 
     it("should render with right Title", () => {
-      const component = render(<Toggle value={true} rightTitle="Off" />);
+      const component = render(
+        <Toggle
+          onPress={(val) => console.log(val)}
+          value={true}
+          rightTitle="Off"
+        />
+      );
 
       const { UNSAFE_getAllByType } = component;
 
@@ -56,7 +72,12 @@ describe("Toggle Component", () => {
 
     it("should render with left Title, right Title", () => {
       const component = render(
-        <Toggle value={true} leftTitle="On" rightTitle="Off" />
+        <Toggle
+          onPress={(val) => console.log(val)}
+          value={true}
+          leftTitle="On"
+          rightTitle="Off"
+        />
       );
 
       const { UNSAFE_getAllByType } = component;
@@ -78,6 +99,7 @@ describe("Toggle Component", () => {
 
       const component = render(
         <Toggle
+          onPress={(val) => console.log(val)}
           value={defaultValue}
           leftComponent={
             <View testID="LeftComponent">
@@ -125,6 +147,7 @@ describe("Toggle Component", () => {
 
       const component = render(
         <Toggle
+          onPress={(val) => console.log(val)}
           value={defaultValue}
           leftComponent={
             <Text testID="LeftComponent" style={{ fontSize: 50 }}>
@@ -146,6 +169,7 @@ describe("Toggle Component", () => {
 
       const component = render(
         <Toggle
+          onPress={(val) => console.log(val)}
           value={defaultValue}
           rightComponent={
             <Text testID="RightComponent" style={{ fontSize: 70 }}>
@@ -169,6 +193,7 @@ describe("Toggle Component", () => {
 
       const component = render(
         <Toggle
+          onPress={(val) => console.log(val)}
           value={defaultValue}
           trackBar={{
             width: 200,
@@ -195,6 +220,7 @@ describe("Toggle Component", () => {
 
       const component = render(
         <Toggle
+          onPress={(val) => console.log(val)}
           value={defaultValue}
           trackBar={{
             activeBackgroundColor: "red",
@@ -225,7 +251,11 @@ describe("Toggle Component", () => {
         inActiveBackgroundColor: "grey",
       };
       const component = render(
-        <Toggle value={defaultValue} thumbButton={thumbButtonStyle} />
+        <Toggle
+          onPress={(val) => console.log(val)}
+          value={defaultValue}
+          thumbButton={thumbButtonStyle}
+        />
       );
 
       const { getByTestId } = component;
@@ -258,7 +288,11 @@ describe("Toggle Component", () => {
         inActiveBackgroundColor: "grey",
       };
       const component = render(
-        <Toggle value={defaultValue} thumbButton={thumbButtonStyle} />
+        <Toggle
+          onPress={(val) => console.log(val)}
+          value={defaultValue}
+          thumbButton={thumbButtonStyle}
+        />
       );
 
       const { getByTestId } = component;
@@ -275,18 +309,6 @@ describe("Toggle Component", () => {
   });
 
   describe("onPress events", () => {
-    it("should be call default onPress events if not bind event", () => {
-      console.warn = jest.fn();
-      const defaultValue = true;
-      const component = render(<Toggle value={defaultValue} />);
-      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
-
-      const { getByTestId } = component;
-      fireEvent.press(getByTestId("ToggleButton"));
-
-      expect(warn).toBeCalledWith("Please attach a method for Toggle Button");
-    });
-
     it("should be call onPress events", async () => {
       const mockOnPressFn = jest.fn();
       const defaultValue = true;
@@ -330,6 +352,7 @@ describe("Toggle Component", () => {
 
       const component = render(
         <Toggle
+          onPress={(val) => console.log(val)}
           value={true}
           disabledTitleStyle={disableStyle}
           disabled={true}
