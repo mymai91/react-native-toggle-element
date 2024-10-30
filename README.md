@@ -1,6 +1,10 @@
-# React-Native-Toggle-Element 2.0 [![CircleCI](https://circleci.com/gh/mymai91/react-native-toggle-element.svg?style=svg)](https://circleci.com/gh/mymai91/react-native-toggle-element)
+# React-Native-Toggle-Element 2.1.1 [![CircleCI](https://circleci.com/gh/mymai91/react-native-toggle-element.svg?style=svg)](https://circleci.com/gh/mymai91/react-native-toggle-element)
 
 The library has been rewritten with Typescript support in version `2.0.0`. This library will work well on both React Native and Expo, please check out the examples folder.
+
+The latest version is `2.1.1`
+
+- React will stop supporting `defaultProps` in major releases, so the react-native-toggle-element no longer uses it in this version.
 
 ![ezgif com-video-to-gif (7)](https://user-images.githubusercontent.com/6791942/80718297-8edea800-8b2c-11ea-8f69-c7c3f98ca545.gif)
 
