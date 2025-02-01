@@ -156,7 +156,7 @@ const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
             style={StyleSheet.flatten([
               {
                 transform: [{ translateX: fadeAnim }],
-                zIndex: -1,
+                zIndex: 1,
                 backgroundColor: toggleValue
                   ? activeBackgroundColor
                   : inActiveBackgroundColor,
