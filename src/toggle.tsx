@@ -76,6 +76,9 @@ const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
     leftTitle = "",
     rightTitle = "",
     animationDuration = 250,
+    activeTrackBarComponent,
+    inActiveTrackBarComponent,
+    managed = false
   } = { ...DefaultThumbChildrenProps, ...props };
 
   const finalTrackBar = { ...defaultTrackBar, ...customTrackBar };
@@ -87,7 +90,8 @@ const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
       finalThumbButton,
       finalTrackBar,
       animationDuration,
-      onPress
+      onPress,
+      managed,
     );
 
   const trackBarBackgroundColor = () => {
@@ -128,6 +132,8 @@ const ReactNativeToggleElement = (props: ReactNativeToggleElementProps) => {
             disabled && disabledStyle,
           ])}
         >
+          {toggleValue && activeTrackBarComponent}
+          {!toggleValue && inActiveTrackBarComponent}
           <View
             testID="ThumbButtonLeft"
             style={StyleSheet.flatten([

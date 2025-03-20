@@ -24,7 +24,8 @@ export const useToggleValue = (
   thumbButton: ThumbButton,
   trackBar: TrackBar,
   animationDuration: number,
-  onPress: (val?: boolean) => void
+  onPress: (val?: boolean) => void,
+  managed: boolean
 ) => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
@@ -53,7 +54,9 @@ export const useToggleValue = (
 
   const handleToggle = () => {
     const val = !toggleValue;
-    setToggleValue(val);
+    if(!managed) {
+      setToggleValue(val);
+    }
     onPress(val);
   };
 
